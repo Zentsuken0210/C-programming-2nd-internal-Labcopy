@@ -1,0 +1,166 @@
+1. Write a C program to find the number is Amstrong number or not:-
+
+#include<stdio.h>
+int main()
+{
+    int number, sum=0, lastDigit, temp;
+    printf("Enter a number: ");
+    scanf("%d", &number);
+    temp = number;
+
+    while (temp!=0)
+    {
+        lastDigit = temp%10;
+        sum = sum + (lastDigit * lastDigit * lastDigit);
+        temp = temp/10;
+    }
+
+    if (sum == number)
+    {
+        printf("\n The Amstrong number is = %d", number);
+    }
+    else
+        printf("\n %d is not an Amstrong number\n", number);
+
+    return 0;
+    
+    
+}
+
+
+
+2. Write a C program to take n numbers from user and store then in an array and print the elements:-
+
+#include<stdio.h>
+int main()
+{
+    int a[5], i;
+    printf("Enter five numbers: ");
+    for ( i = 0; i < 5; i++)
+    {
+        scanf("%d", &a[i]);
+    }
+    printf("\n The array contains: \n");
+    for ( i = 0; i < 5; i++)
+    {
+        printf("%d", a[i]);
+    }
+
+    return 0;
+    
+    
+}
+
+
+
+3. Write a C program to perform matrix multiplication operation using 2d array:-
+
+#include<stdio.h>
+int main()
+{
+    int a[10][10], b[10][10], c[10][10], n, i, j, k;
+    printf("Enter the value of N (N<=10): ");
+    scanf("%d", &n);
+    printf("\n Enter the element of Matrix-A: ");
+    for ( i = 0; i < n; i++)
+    {
+        for ( j = 0; j < n; j++)
+        {
+            scanf("%d", & a[i][j]);
+        }
+        
+    }
+    printf("\n Enter the elements of Matrix-B: ");
+    for ( i = 0; i < n; i++)
+    {
+        for ( j = 0; j < n; j++)
+        {
+            scanf("%d", & b[i][j]);
+        }
+        
+    }
+    for ( i = 0; i < n; i++)
+    {
+        for ( j = 0; j < n; j++)
+        {
+            c[i][j] = 0;
+            for ( k = 0; k < n; k++)
+            {
+                c[i][j]+=a[i][k]*b[k][i];
+            }
+            
+        }
+        
+    }
+    printf("\n The product of two Matrices is: ");
+    for ( i = 0; i < n; i++)
+    {
+        for ( j = 0; j < n; j++)
+        {
+            printf("%d\t", c[i][j]);
+        }
+        printf("\n");
+    }
+    
+    
+}
+
+
+
+4. Write a program to convert Decimal to Octal:-
+
+#include<stdio.h>
+#include<math.h>
+int convertDecimalToOctal(int decimalNumber);
+
+int main()
+{
+    int decimalNumber;
+    printf("Enter the Decimal Number: ");
+    scanf("%d", &decimalNumber);
+    printf("%d in decimal = %d in octal", decimalNumber,convertDecimalToOctal(decimalNumber));
+    return 0;
+}
+    int convertDecimalToOctal(int decimalNumber)
+    {
+        int octalNumber = 0, i=1;
+        while (decimalNumber !=0)
+        {
+            octalNumber +=(decimalNumber%8)*i;
+            decimalNumber /=8;
+            i*=10;
+        }
+        return octalNumber;
+    }
+
+
+
+5. Write a program to convert Decimal to Binary:-
+
+#include<stdio.h>
+#include<math.h>
+long long convert(int);
+int main()
+{
+    int n, bin;
+    printf("Enter the decinmal number: ");
+    scanf("%d",&n);
+    bin = convert(n);
+    printf("%d in decimal = %d in binary", n, bin);
+    return 0;
+}
+    long long convert(int n)
+    {
+        long long bin = 0;
+        int rem, i=1;
+        while (n!=0)
+        {
+            rem = n%2;
+            n/=2;
+            bin+= rem * i;
+            i*=10;
+        }
+        return bin;
+        
+    }
+    
